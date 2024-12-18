@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser')
 
 const userRoute = require('./routes/userRoutes')
 
+const port = process.env.PORT || 3000
+
 const app = express();
 
 app.use(express.json());
@@ -28,6 +30,6 @@ mongoose.connect(process.env.DATABASE_URL)
     .then(() => console.log("DB connected successfully"))
     .catch((err) => console.log("Failed to connect database ", err))
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("server is running.. 3000")
 })
